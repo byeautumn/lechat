@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      username: aerial
+      password: aerial
+      host: localhost
+      port: 27017
+      database: lechat
+      authentication-database: admin
+
+server:
+  port: 8088
