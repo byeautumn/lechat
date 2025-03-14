@@ -18,12 +18,10 @@ public class ChatMessageService {
                 message.getSenderId(),
                 message.getRecipientId(),
                 true
-        ).orElseThrow(); // TODO: create a dedicated Exception
+        ).orElseThrow(() -> new RuntimeException("Chat room not found or created.")); // Replace with a dedicated Exception
 
         message.setChatId(chatId);
-        repository.save(message);
-
-        return message;
+        return repository.save(message); //Return the saved message.
     }
 
     public List<ChatMessage> findChatMessages(

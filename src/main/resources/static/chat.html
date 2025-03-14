@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat </title>
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+<div class="chat-container">
+  <header class="chat-header">
+    <h1>Chat</h1>
+    <div class="header-buttons">
+      <button id="logoutButton">Logout</button>
+      <button id="announcementsButton">Back to Announcements</button>
+    </div>
+  </header>
+  <div class="chat-main">
+    <div id="teachersList" class="user-list"></div>
+    <div id="messages">
+      <div class="chat-area">
+        <div id="chat-messages" class="messages"></div>
+        <div class="chat-input">
+          <span id="recipientInput"></span>
+          <input type="text" id="messageInput" placeholder="Type your message...">
+          <button id="sendButton">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="refresh-button-container">
+    <button id="refreshUsers">Refresh Users</button>
+  </div>
+</div>
+<audio id="notificationSound" src="sound/notification.mp3"></audio>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="js/chat.js"></script>
+</body>
+</html>

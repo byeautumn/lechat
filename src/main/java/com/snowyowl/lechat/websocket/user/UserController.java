@@ -1,38 +1,41 @@
 package com.snowyowl.lechat.websocket.user;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController; // Import RestController
+import jakarta.servlet.http.HttpSession;
 
-import java.util.List;
-
-@Controller
+@RestController // Use RestController instead of Controller
 @RequiredArgsConstructor
 public class UserController {
 
-    private  final UserService service;
+    private final UserService service;
 
-    @MessageMapping("/user.addUser")
+    @MessageMapping("/user.registerUser")
     @SendTo("/topic/public")
-    public User addUser(@Payload User user) {
-        service.saveUser(user);
-
-        return user;
+    public void registerUser(@Payload User user) {
+        service.registerUser(user);
     }
 
     @MessageMapping("/user.disconnectUser")
     @SendTo("/topic/public")
-    public User disconnect(@Payload User user) {
-        service.disconnect(user);
-        return user;
+    public void disconnectUser(@Payload User user) {
+        service.updateUserStatus(user.getUsername(), Status.OFFLINE);
     }
 
-    @GetMapping("/users")
-    public ResponseEntity<List<User>> findConnectedUsers() {
-        return ResponseEntity.ok(service.findConnectedUsers());
-    }
+    // REMOVE THIS METHOD:
+    // @GetMapping("/api/user/role")
+    // public String getUserRole(HttpSession session) {
+    //     String username = (String) session.getAttribute("username");
+    //     if (username == null) {
+    //         return "GUEST";
+    //     }
+    //     User user = service.findByUsername(username).orElse(null); // Use UserService
+    //     if (user != null) {
+    //         return user.getRole();
+    //     }
+    //     return "GUEST";
+    // }
 }

@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #eed2d7;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#announcementList {
+    margin-bottom: 20px;
+}
+
+.announcement {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.announcement-text {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.announcement-meta {
+    font-size: 0.8em;
+    color: #888;
+    text-align: right;
+    padding-left: 100px;
+}
+
+#announcementForm {
+    background-color: #e9e9e9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#announcementText {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: vertical;
+}
+
+#postAnnouncement {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#postAnnouncement:hover {
+    background-color: #3e8e41;
+}
+
+.announcement button {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8em;
+    display: none;
+}
+
+.announcement:hover button {
+    display: inline-block;
+}
+
+.announcement button:hover {
+    background-color: #d32f2f;
+}
+
+#chatButtons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#chatButtons button {
+    background-color: #007bff; /* Example: Primary color */
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#chatButtons button:hover {
+    background-color: #0056b3;
+}
